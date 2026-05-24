@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rythm Financial — Vancouver Financial Advisory</title>
+<meta name="description" content="Independent financial guidance for families and professionals across British Columbia. Life insurance, estate planning, segregated funds, and more.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -11,17 +12,17 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink:     #1A1A24;
-    --sage:    #4A6741;
-    --sage-lt: #6A8D60;
-    --cream:   #F7F3EC;
-    --warm:    #E8E0D0;
-    --gold:    #B8925A;
-    --gold-lt: #D4A96A;
-    --mist:    #C8D4C0;
-    --white:   #FFFFFF;
-    --text:    #2C2C38;
-    --subtext: #5A5A6A;
+    --ink:      #1A1A24;
+    --royal:    #1D4ED8;
+    --royal-lt: #3B82F6;
+    --cream:    #F7F3EC;
+    --warm:     #E8E0D0;
+    --gold:     #B8925A;
+    --gold-lt:  #D4A96A;
+    --mist:     #D0D7E5;
+    --white:    #FFFFFF;
+    --text:     #2C2C38;
+    --subtext:  #5A5A6A;
   }
 
   html { scroll-behavior: smooth; }
@@ -89,12 +90,12 @@
     background: var(--gold);
     transition: width .3s;
   }
-  .nav-links a:hover { color: var(--sage); }
+  .nav-links a:hover { color: var(--royal); }
   .nav-links a:hover::after { width: 100%; }
 
   .btn-nav {
     padding: 9px 22px;
-    background: var(--sage);
+    background: var(--royal);
     color: var(--white);
     font-size: 13px;
     font-weight: 500;
@@ -103,7 +104,7 @@
     letter-spacing: .06em;
     transition: background .2s, transform .15s;
   }
-  .btn-nav:hover { background: var(--sage-lt); transform: translateY(-1px); }
+  .btn-nav:hover { background: var(--royal-lt); transform: translateY(-1px); }
 
   /* ── HERO ── */
   .hero {
@@ -153,7 +154,7 @@
   }
   .hero h1 em {
     font-style: italic;
-    color: var(--sage);
+    color: var(--royal);
   }
 
   .hero-desc {
@@ -169,7 +170,7 @@
 
   .btn-primary {
     padding: 14px 32px;
-    background: var(--sage);
+    background: var(--royal);
     color: var(--white);
     font-size: 14px;
     font-weight: 500;
@@ -177,9 +178,9 @@
     text-decoration: none;
     letter-spacing: .06em;
     transition: background .2s, transform .15s, box-shadow .2s;
-    box-shadow: 0 4px 16px rgba(74,103,65,.25);
+    box-shadow: 0 4px 16px rgba(29,78,216,.28);
   }
-  .btn-primary:hover { background: var(--sage-lt); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(74,103,65,.3); }
+  .btn-primary:hover { background: var(--royal-lt); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(29,78,216,.35); }
 
   .btn-secondary {
     padding: 14px 32px;
@@ -193,7 +194,7 @@
     letter-spacing: .06em;
     transition: border-color .2s, color .2s, transform .15s;
   }
-  .btn-secondary:hover { border-color: var(--sage); color: var(--sage); transform: translateY(-2px); }
+  .btn-secondary:hover { border-color: var(--royal); color: var(--royal); transform: translateY(-2px); }
 
   .hero-stats {
     display: flex;
@@ -202,7 +203,6 @@
     padding-top: 40px;
     border-top: 1px solid rgba(184,146,90,.2);
   }
-  .stat-item {}
   .stat-num {
     font-family: 'Playfair Display', serif;
     font-size: 28px;
@@ -225,7 +225,7 @@
   .hero-bg-panel {
     position: absolute;
     inset: 0;
-    background: linear-gradient(160deg, var(--sage) 0%, #2E4229 100%);
+    background: linear-gradient(160deg, var(--royal) 0%, #0F2D6B 100%);
   }
   .hero-bg-pattern {
     position: absolute;
@@ -250,10 +250,7 @@
   .hc2 { width: 300px; height: 300px; bottom: 60px; left: 40px; }
   .hc3 { width: 160px; height: 160px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
 
-  .hero-card {
-    position: absolute;
-    z-index: 3;
-  }
+  .hero-card { position: absolute; z-index: 3; }
   .hero-card-main {
     bottom: 80px; left: 50%; transform: translateX(-50%);
     background: rgba(247,243,236,.96);
@@ -294,7 +291,7 @@
     display: inline-block;
     width: 5px; height: 5px;
     border-radius: 50%;
-    background: var(--sage);
+    background: var(--royal);
     flex-shrink: 0;
   }
 
@@ -354,7 +351,7 @@
     line-height: 1.15;
     margin-bottom: 16px;
   }
-  .section-title em { font-style: italic; color: var(--sage); }
+  .section-title em { font-style: italic; color: var(--royal); }
 
   .section-desc {
     font-size: 16px;
@@ -438,7 +435,7 @@
     position: absolute;
     bottom: 0; left: 0;
     width: 100%; height: 3px;
-    background: var(--sage);
+    background: var(--royal);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform .35s;
@@ -450,21 +447,21 @@
     font-family: 'Playfair Display', serif;
     font-size: 48px;
     font-weight: 700;
-    color: rgba(74,103,65,.08);
+    color: rgba(29,78,216,.08);
     line-height: 1;
     margin-bottom: 20px;
     user-select: none;
   }
   .sc-icon {
     width: 48px; height: 48px;
-    background: linear-gradient(135deg, rgba(74,103,65,.1), rgba(74,103,65,.05));
+    background: linear-gradient(135deg, rgba(29,78,216,.1), rgba(29,78,216,.05));
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
   }
-  .sc-icon svg { width: 22px; height: 22px; color: var(--sage); }
+  .sc-icon svg { width: 22px; height: 22px; color: var(--royal); }
 
   .sc-title {
     font-family: 'Playfair Display', serif;
@@ -486,7 +483,7 @@
     gap: 6px;
     font-size: 12px;
     font-weight: 500;
-    color: var(--sage);
+    color: var(--royal);
     text-decoration: none;
     letter-spacing: .06em;
     text-transform: uppercase;
@@ -554,7 +551,7 @@
   .av-quote::before {
     content: '"';
     font-size: 80px;
-    color: rgba(74,103,65,.1);
+    color: rgba(29,78,216,.08);
     font-family: 'Playfair Display', serif;
     position: absolute;
     top: -20px; left: -12px;
@@ -584,20 +581,17 @@
     content: '';
     width: 18px; height: 18px;
     border-radius: 50%;
-    background: rgba(74,103,65,.12);
-    border: 1.5px solid var(--sage);
+    background: rgba(29,78,216,.08);
+    border: 1.5px solid var(--royal);
     flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%234A6741' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%231D4ED8' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-size: 12px;
     background-repeat: no-repeat;
     background-position: center;
   }
 
   /* ── TESTIMONIALS ── */
-  .testimonials { background: var(--sage); }
+  .testimonials { background: var(--royal); }
   .testimonials .section-eyebrow { color: var(--gold-lt); }
   .testimonials .section-eyebrow::before { background: var(--gold-lt); }
   .testimonials .section-title { color: var(--cream); }
@@ -610,13 +604,13 @@
   }
   .testi-card {
     background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.14);
     border-radius: 4px;
     padding: 36px 32px;
     backdrop-filter: blur(8px);
     transition: background .3s;
   }
-  .testi-card:hover { background: rgba(255,255,255,.13); }
+  .testi-card:hover { background: rgba(255,255,255,.14); }
   .testi-quote {
     font-family: 'Playfair Display', serif;
     font-size: 16px;
@@ -626,11 +620,7 @@
     margin-bottom: 24px;
   }
   .testi-stars { color: var(--gold-lt); font-size: 13px; letter-spacing: 3px; margin-bottom: 20px; }
-  .testi-author {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
+  .testi-author { display: flex; align-items: center; gap: 14px; }
   .testi-avatar {
     width: 40px; height: 40px;
     border-radius: 50%;
@@ -644,30 +634,17 @@
     color: var(--gold-lt);
     font-weight: 700;
   }
-  .testi-name {
-    font-weight: 500;
-    font-size: 13.5px;
-    color: var(--cream);
-  }
-  .testi-role {
-    font-size: 11.5px;
-    color: rgba(247,243,236,.5);
-    font-weight: 300;
-    margin-top: 2px;
-  }
+  .testi-name { font-weight: 500; font-size: 13.5px; color: var(--cream); }
+  .testi-role { font-size: 11.5px; color: rgba(247,243,236,.5); font-weight: 300; margin-top: 2px; }
 
   /* ── CTA BAND ── */
-  .cta-band {
-    background: var(--gold);
-    padding: 72px 80px;
-  }
+  .cta-band { background: var(--gold); padding: 72px 80px; }
   .cta-band .section-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 48px;
   }
-  .cta-band-text {}
   .cta-band h2 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(26px, 3vw, 38px);
@@ -707,21 +684,17 @@
     align-items: start;
   }
   .contact-info { margin-top: 40px; }
-  .ci-item {
-    display: flex;
-    gap: 18px;
-    margin-bottom: 32px;
-  }
+  .ci-item { display: flex; gap: 18px; margin-bottom: 32px; }
   .ci-icon {
     width: 44px; height: 44px;
-    background: rgba(74,103,65,.08);
+    background: rgba(29,78,216,.08);
     border-radius: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   }
-  .ci-icon svg { width: 18px; height: 18px; color: var(--sage); }
+  .ci-icon svg { width: 18px; height: 18px; color: var(--royal); }
   .ci-label {
     font-size: 10px;
     letter-spacing: .18em;
@@ -730,18 +703,8 @@
     font-weight: 500;
     margin-bottom: 4px;
   }
-  .ci-value {
-    font-size: 14.5px;
-    color: var(--ink);
-    font-weight: 400;
-    line-height: 1.5;
-  }
-  .ci-note {
-    font-size: 12px;
-    color: var(--subtext);
-    margin-top: 2px;
-    font-weight: 300;
-  }
+  .ci-value { font-size: 14.5px; color: var(--ink); font-weight: 400; line-height: 1.5; }
+  .ci-note { font-size: 12px; color: var(--subtext); margin-top: 2px; font-weight: 300; }
 
   .contact-form-wrap {
     background: var(--white);
@@ -756,12 +719,7 @@
     color: var(--ink);
     margin-bottom: 6px;
   }
-  .cf-sub {
-    font-size: 13px;
-    color: var(--subtext);
-    font-weight: 300;
-    margin-bottom: 32px;
-  }
+  .cf-sub { font-size: 13px; color: var(--subtext); font-weight: 300; margin-bottom: 32px; }
   .form-row { margin-bottom: 20px; }
   .form-row.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .form-label {
@@ -787,14 +745,14 @@
     appearance: none;
   }
   .form-input:focus, .form-select:focus, .form-textarea:focus {
-    border-color: var(--sage);
-    box-shadow: 0 0 0 3px rgba(74,103,65,.12);
+    border-color: var(--royal);
+    box-shadow: 0 0 0 3px rgba(29,78,216,.10);
   }
   .form-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
   .form-submit {
     width: 100%;
     padding: 14px;
-    background: var(--sage);
+    background: var(--royal);
     color: var(--white);
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
@@ -806,7 +764,7 @@
     transition: background .2s, transform .15s;
     margin-top: 8px;
   }
-  .form-submit:hover { background: var(--sage-lt); transform: translateY(-1px); }
+  .form-submit:hover { background: var(--royal-lt); transform: translateY(-1px); }
   .form-disclaimer {
     font-size: 11px;
     color: var(--subtext);
@@ -904,41 +862,52 @@
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">
-    <!-- SVG LOGO -->
+    <!-- DRUM SET LOGO (Nav, 42×42) -->
     <svg class="logo-svg" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
       <!-- Outer ring -->
-      <circle cx="21" cy="21" r="20" stroke="#4A6741" stroke-width="1.5"/>
-      <!-- Drum rim/head -->
-      <ellipse cx="21" cy="28" rx="8" ry="2.5" fill="#F7F3EC" stroke="#4A6741" stroke-width="1.5"/>
-      <!-- Drum body -->
-      <path d="M13 28 v4 c0 1.5 3.5 2.5 8 2.5 s8-1 8-2.5 v-4" fill="#E8E0D0" stroke="#4A6741" stroke-width="1.5"/>
-      <!-- Tension rods -->
-      <line x1="16" y1="29.5" x2="16" y2="33.5" stroke="#B8925A" stroke-width="1"/>
-      <line x1="21" y1="30.5" x2="21" y2="34.5" stroke="#B8925A" stroke-width="1"/>
-      <line x1="26" y1="29.5" x2="26" y2="33.5" stroke="#B8925A" stroke-width="1"/>
-      <!-- Drumsticks -->
-      <line x1="9" y1="21" x2="18" y2="27.5" stroke="#B8925A" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="9" cy="21" r="0.8" fill="#B8925A"/>
-      <line x1="33" y1="21" x2="24" y2="27.5" stroke="#B8925A" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="33" cy="21" r="0.8" fill="#B8925A"/>
-      <!-- Beamed Music Notes (Dollar Signs) -->
-      <!-- Left S curve -->
-      <path d="M15 16.2 c-1.2 0 -1.8 -0.6 -1.8 -1.5 s0.6 -1.5 1.8 -1.5 s1.8 0.6 1.8 1.5 h-0.9 c0 -0.5 -0.3 -0.7 -0.9 -0.7 s-0.9 0.2 -0.9 0.7 s0.3 0.7 0.9 0.7 s1.8 0.6 1.8 1.5 s-0.6 1.5 -1.8 1.5 s-1.8 -0.6 -1.8 -1.5 h0.9 c0 0.5 0.3 0.7 0.9 0.7 s0.9 -0.2 0.9 -0.7 s-0.3 -0.7 -0.9 -0.7 z" fill="#B8925A"/>
-      <rect x="14.6" y="12" width="0.8" height="6" rx="0.3" fill="#B8925A"/>
-      <!-- Left Stem -->
-      <line x1="16.4" y1="14.5" x2="16.4" y2="7.5" stroke="#B8925A" stroke-width="1"/>
-      <!-- Right S curve -->
-      <path d="M24 13.2 c-1.2 0 -1.8 -0.6 -1.8 -1.5 s0.6 -1.5 1.8 -1.5 s1.8 0.6 1.8 1.5 h-0.9 c0 -0.5 -0.3 -0.7 -0.9 -0.7 s-0.9 0.2 -0.9 0.7 s0.3 0.7 0.9 0.7 s1.8 0.6 1.8 1.5 s-0.6 1.5 -1.8 1.5 s-1.8 -0.6 -1.8 -1.5 h0.9 c0 0.5 0.3 0.7 0.9 0.7 s0.9 -0.2 0.9 -0.7 s-0.3 -0.7 -0.9 -0.7 z" fill="#B8925A"/>
-      <rect x="23.6" y="9" width="0.8" height="6" rx="0.3" fill="#B8925A"/>
-      <!-- Right Stem -->
-      <line x1="25.4" y1="11.5" x2="25.4" y2="4.5" stroke="#B8925A" stroke-width="1"/>
-      <!-- Note Beam -->
-      <polygon points="16.4,7.5 25.4,4.5 25.4,6 16.4,9" fill="#B8925A"/>
-      <!-- Single floating note -->
-      <path d="M31 16.7 c-0.8 0 -1.2 -0.4 -1.2 -1 s0.4 -1 1.2 -1 s1.2 0.4 1.2 1 h-0.6 c0 -0.3 -0.2 -0.5 -0.6 -0.5 s-0.6 0.1 -0.6 0.5 s0.2 0.5 0.6 0.5 s1.2 0.4 1.2 1 s-0.4 1 -1.2 1 s-1.2 -0.4 -1.2 -1 h0.6 c0 0.3 0.2 0.5 0.6 0.5 s0.6 -0.1 0.6 -0.5 s-0.2 -0.5 -0.6 -0.5 z" fill="#B8925A"/>
-      <rect x="30.7" y="14" width="0.6" height="4" rx="0.2" fill="#B8925A"/>
-      <line x1="32.0" y1="15.5" x2="32.0" y2="10.5" stroke="#B8925A" stroke-width="0.8"/>
-      <path d="M32.0 10.5 c1.5 1 1 2.5 0 3.5 c0.5 -1.2 0 -2.5 -0 -3.5" fill="#B8925A"/>
+      <circle cx="21" cy="21" r="20" stroke="#1D4ED8" stroke-width="1.5" fill="none"/>
+      <!-- Crash cymbal (top-right, angled) -->
+      <g transform="rotate(-14 31 11)">
+        <ellipse cx="31" cy="11" rx="6" ry="1.4" fill="#B8925A" stroke="#D4A96A" stroke-width="0.5"/>
+        <polygon points="30,11 32,11 31,9.5" fill="#B8925A"/>
+      </g>
+      <!-- Cymbal stand rod -->
+      <line x1="31" y1="12" x2="31" y2="30" stroke="#B8925A" stroke-width="0.9"/>
+      <!-- Hi-hat stand rod -->
+      <line x1="8" y1="19" x2="8" y2="35" stroke="#B8925A" stroke-width="0.9"/>
+      <!-- Hi-hat cymbals -->
+      <ellipse cx="8" cy="19" rx="4.5" ry="1.1" fill="#B8925A" stroke="#D4A96A" stroke-width="0.5"/>
+      <ellipse cx="8" cy="17.8" rx="4.5" ry="1.1" fill="#B8925A" stroke="#D4A96A" stroke-width="0.5"/>
+      <polygon points="7.2,17.8 8.8,17.8 8,16.6" fill="#B8925A"/>
+      <!-- Tom mount bar across top of bass drum -->
+      <path d="M15.5 23 L21 24.5 L26.5 23" stroke="#B8925A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <!-- Rack Tom Left -->
+      <rect x="13" y="17" width="7" height="6" rx="0.8" fill="#1D4ED8" stroke="#B8925A" stroke-width="1"/>
+      <ellipse cx="16.5" cy="17" rx="3.5" ry="1" fill="#F7F3EC" stroke="#B8925A" stroke-width="1"/>
+      <!-- Rack Tom Right -->
+      <rect x="22" y="17" width="7" height="6" rx="0.8" fill="#1D4ED8" stroke="#B8925A" stroke-width="1"/>
+      <ellipse cx="25.5" cy="17" rx="3.5" ry="1" fill="#F7F3EC" stroke="#B8925A" stroke-width="1"/>
+      <!-- Snare stand -->
+      <line x1="13" y1="30" x2="13" y2="37" stroke="#B8925A" stroke-width="0.9"/>
+      <!-- Snare Drum -->
+      <rect x="9" y="27" width="8" height="4.5" rx="0.6" fill="#B8925A" stroke="#1D4ED8" stroke-width="0.8"/>
+      <ellipse cx="13" cy="27" rx="4" ry="1.1" fill="#F7F3EC" stroke="#1D4ED8" stroke-width="0.8"/>
+      <!-- Snare wires -->
+      <line x1="9.5" y1="31.5" x2="16.5" y2="31.5" stroke="#D4A96A" stroke-width="0.5" stroke-dasharray="1 1"/>
+      <!-- Bass Drum spurs -->
+      <line x1="16" y1="33" x2="13" y2="37" stroke="#B8925A" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="26" y1="33" x2="29" y2="37" stroke="#B8925A" stroke-width="1.2" stroke-linecap="round"/>
+      <!-- Bass Drum shell -->
+      <rect x="16" y="24" width="10" height="9.5" rx="1.2" fill="#1D4ED8" stroke="#B8925A" stroke-width="1.3"/>
+      <!-- Bass drum head -->
+      <ellipse cx="21" cy="28" rx="4.2" ry="4.2" fill="#F7F3EC" stroke="#B8925A" stroke-width="1"/>
+      <!-- Subtle 'R' on bass drum head -->
+      <path d="M20 26.2 v3.6 M20 26.2 c1.5 0 2.2 0.7 2.2 1.6 s-0.7 1.5-2.2 1.5 M20.8 28.5 l1.6 1.4" stroke="#1D4ED8" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+      <!-- Drumsticks crossing above -->
+      <line x1="10" y1="13" x2="19" y2="23" stroke="#B8925A" stroke-width="1.4" stroke-linecap="round" opacity="0.9"/>
+      <circle cx="10" cy="13" r="0.7" fill="#B8925A"/>
+      <line x1="32" y1="13" x2="23" y2="23" stroke="#B8925A" stroke-width="1.4" stroke-linecap="round" opacity="0.9"/>
+      <circle cx="32" cy="13" r="0.7" fill="#B8925A"/>
     </svg>
     <div class="nav-logo-text">
       <span class="name">Rythm Financial</span>
@@ -1085,8 +1054,6 @@
     </div>
 
     <div class="services-grid">
-
-      <!-- 1 -->
       <div class="service-card">
         <div class="sc-number">01</div>
         <div class="sc-icon">
@@ -1100,7 +1067,6 @@
         <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
 
-      <!-- 2 -->
       <div class="service-card">
         <div class="sc-number">02</div>
         <div class="sc-icon">
@@ -1113,7 +1079,6 @@
         <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
 
-      <!-- 3 -->
       <div class="service-card">
         <div class="sc-number">03</div>
         <div class="sc-icon">
@@ -1126,7 +1091,6 @@
         <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
 
-      <!-- 4 -->
       <div class="service-card">
         <div class="sc-number">04</div>
         <div class="sc-icon">
@@ -1139,7 +1103,6 @@
         <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
 
-      <!-- 5 -->
       <div class="service-card">
         <div class="sc-number">05</div>
         <div class="sc-icon">
@@ -1152,7 +1115,6 @@
         <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
 
-      <!-- 6 -->
       <div class="service-card">
         <div class="sc-number">06</div>
         <div class="sc-icon">
@@ -1166,7 +1128,6 @@
         <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
 
-      <!-- 7 spans full width on last row -->
       <div class="service-card" style="grid-column: 1 / -1; max-width: calc(33.33% - 1.34px);">
         <div class="sc-number">07</div>
         <div class="sc-icon">
@@ -1179,7 +1140,6 @@
         <p class="sc-desc">Emergency medical, trip cancellation, and interruption coverage for Canadian travellers — whether you travel occasionally or frequently.</p>
         <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
-
     </div>
   </div>
 </section>
@@ -1392,7 +1352,7 @@
         <label class="form-label">Message (Optional)</label>
         <textarea class="form-textarea" placeholder="Tell us briefly about your situation or any questions you have..."></textarea>
       </div>
-      <button class="form-submit">Send Message</button>
+      <button class="form-submit" id="contactSubmit">Send Message</button>
       <p class="form-disclaimer">
         Your information is protected under PIPEDA and BC's Personal Information Protection Act. We will never share or sell your personal information. This form does not constitute financial advice or an advisor-client relationship.
       </p>
@@ -1406,40 +1366,36 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a href="#" class="nav-logo" style="display:inline-flex;">
+          <!-- DRUM SET LOGO (Footer, 36×36) -->
           <svg width="36" height="36" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Outer ring -->
-            <circle cx="21" cy="21" r="20" stroke="#4A6741" stroke-width="1.5"/>
-            <!-- Drum rim/head -->
-            <ellipse cx="21" cy="28" rx="8" ry="2.5" fill="#F7F3EC" stroke="#4A6741" stroke-width="1.5"/>
-            <!-- Drum body -->
-            <path d="M13 28 v4 c0 1.5 3.5 2.5 8 2.5 s8-1 8-2.5 v-4" fill="#E8E0D0" stroke="#4A6741" stroke-width="1.5"/>
-            <!-- Tension rods -->
-            <line x1="16" y1="29.5" x2="16" y2="33.5" stroke="#B8925A" stroke-width="1"/>
-            <line x1="21" y1="30.5" x2="21" y2="34.5" stroke="#B8925A" stroke-width="1"/>
-            <line x1="26" y1="29.5" x2="26" y2="33.5" stroke="#B8925A" stroke-width="1"/>
-            <!-- Drumsticks -->
-            <line x1="9" y1="21" x2="18" y2="27.5" stroke="#B8925A" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="9" cy="21" r="0.8" fill="#B8925A"/>
-            <line x1="33" y1="21" x2="24" y2="27.5" stroke="#B8925A" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="33" cy="21" r="0.8" fill="#B8925A"/>
-            <!-- Beamed Music Notes (Dollar Signs) -->
-            <!-- Left S curve -->
-            <path d="M15 16.2 c-1.2 0 -1.8 -0.6 -1.8 -1.5 s0.6 -1.5 1.8 -1.5 s1.8 0.6 1.8 1.5 h-0.9 c0 -0.5 -0.3 -0.7 -0.9 -0.7 s-0.9 0.2 -0.9 0.7 s0.3 0.7 0.9 0.7 s1.8 0.6 1.8 1.5 s-0.6 1.5 -1.8 1.5 s-1.8 -0.6 -1.8 -1.5 h0.9 c0 0.5 0.3 0.7 0.9 0.7 s0.9 -0.2 0.9 -0.7 s-0.3 -0.7 -0.9 -0.7 z" fill="#B8925A"/>
-            <rect x="14.6" y="12" width="0.8" height="6" rx="0.3" fill="#B8925A"/>
-            <!-- Left Stem -->
-            <line x1="16.4" y1="14.5" x2="16.4" y2="7.5" stroke="#B8925A" stroke-width="1"/>
-            <!-- Right S curve -->
-            <path d="M24 13.2 c-1.2 0 -1.8 -0.6 -1.8 -1.5 s0.6 -1.5 1.8 -1.5 s1.8 0.6 1.8 1.5 h-0.9 c0 -0.5 -0.3 -0.7 -0.9 -0.7 s-0.9 0.2 -0.9 0.7 s0.3 0.7 0.9 0.7 s1.8 0.6 1.8 1.5 s-0.6 1.5 -1.8 1.5 s-1.8 -0.6 -1.8 -1.5 h0.9 c0 0.5 0.3 0.7 0.9 0.7 s0.9 -0.2 0.9 -0.7 s-0.3 -0.7 -0.9 -0.7 z" fill="#B8925A"/>
-            <rect x="23.6" y="9" width="0.8" height="6" rx="0.3" fill="#B8925A"/>
-            <!-- Right Stem -->
-            <line x1="25.4" y1="11.5" x2="25.4" y2="4.5" stroke="#B8925A" stroke-width="1"/>
-            <!-- Note Beam -->
-            <polygon points="16.4,7.5 25.4,4.5 25.4,6 16.4,9" fill="#B8925A"/>
-            <!-- Single floating note -->
-            <path d="M31 16.7 c-0.8 0 -1.2 -0.4 -1.2 -1 s0.4 -1 1.2 -1 s1.2 0.4 1.2 1 h-0.6 c0 -0.3 -0.2 -0.5 -0.6 -0.5 s-0.6 0.1 -0.6 0.5 s0.2 0.5 0.6 0.5 s1.2 0.4 1.2 1 s-0.4 1 -1.2 1 s-1.2 -0.4 -1.2 -1 h0.6 c0 0.3 0.2 0.5 0.6 0.5 s0.6 -0.1 0.6 -0.5 s-0.2 -0.5 -0.6 -0.5 z" fill="#B8925A"/>
-            <rect x="30.7" y="14" width="0.6" height="4" rx="0.2" fill="#B8925A"/>
-            <line x1="32.0" y1="15.5" x2="32.0" y2="10.5" stroke="#B8925A" stroke-width="0.8"/>
-            <path d="M32.0 10.5 c1.5 1 1 2.5 0 3.5 c0.5 -1.2 0 -2.5 -0 -3.5" fill="#B8925A"/>
+            <circle cx="21" cy="21" r="20" stroke="#1D4ED8" stroke-width="1.5" fill="none"/>
+            <g transform="rotate(-14 31 11)">
+              <ellipse cx="31" cy="11" rx="6" ry="1.4" fill="#B8925A" stroke="#D4A96A" stroke-width="0.5"/>
+              <polygon points="30,11 32,11 31,9.5" fill="#B8925A"/>
+            </g>
+            <line x1="31" y1="12" x2="31" y2="30" stroke="#B8925A" stroke-width="0.9"/>
+            <line x1="8" y1="19" x2="8" y2="35" stroke="#B8925A" stroke-width="0.9"/>
+            <ellipse cx="8" cy="19" rx="4.5" ry="1.1" fill="#B8925A" stroke="#D4A96A" stroke-width="0.5"/>
+            <ellipse cx="8" cy="17.8" rx="4.5" ry="1.1" fill="#B8925A" stroke="#D4A96A" stroke-width="0.5"/>
+            <polygon points="7.2,17.8 8.8,17.8 8,16.6" fill="#B8925A"/>
+            <path d="M15.5 23 L21 24.5 L26.5 23" stroke="#B8925A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <rect x="13" y="17" width="7" height="6" rx="0.8" fill="#1D4ED8" stroke="#B8925A" stroke-width="1"/>
+            <ellipse cx="16.5" cy="17" rx="3.5" ry="1" fill="#F7F3EC" stroke="#B8925A" stroke-width="1"/>
+            <rect x="22" y="17" width="7" height="6" rx="0.8" fill="#1D4ED8" stroke="#B8925A" stroke-width="1"/>
+            <ellipse cx="25.5" cy="17" rx="3.5" ry="1" fill="#F7F3EC" stroke="#B8925A" stroke-width="1"/>
+            <line x1="13" y1="30" x2="13" y2="37" stroke="#B8925A" stroke-width="0.9"/>
+            <rect x="9" y="27" width="8" height="4.5" rx="0.6" fill="#B8925A" stroke="#1D4ED8" stroke-width="0.8"/>
+            <ellipse cx="13" cy="27" rx="4" ry="1.1" fill="#F7F3EC" stroke="#1D4ED8" stroke-width="0.8"/>
+            <line x1="9.5" y1="31.5" x2="16.5" y2="31.5" stroke="#D4A96A" stroke-width="0.5" stroke-dasharray="1 1"/>
+            <line x1="16" y1="33" x2="13" y2="37" stroke="#B8925A" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="26" y1="33" x2="29" y2="37" stroke="#B8925A" stroke-width="1.2" stroke-linecap="round"/>
+            <rect x="16" y="24" width="10" height="9.5" rx="1.2" fill="#1D4ED8" stroke="#B8925A" stroke-width="1.3"/>
+            <ellipse cx="21" cy="28" rx="4.2" ry="4.2" fill="#F7F3EC" stroke="#B8925A" stroke-width="1"/>
+            <path d="M20 26.2 v3.6 M20 26.2 c1.5 0 2.2 0.7 2.2 1.6 s-0.7 1.5-2.2 1.5 M20.8 28.5 l1.6 1.4" stroke="#1D4ED8" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+            <line x1="10" y1="13" x2="19" y2="23" stroke="#B8925A" stroke-width="1.4" stroke-linecap="round" opacity="0.9"/>
+            <circle cx="10" cy="13" r="0.7" fill="#B8925A"/>
+            <line x1="32" y1="13" x2="23" y2="23" stroke="#B8925A" stroke-width="1.4" stroke-linecap="round" opacity="0.9"/>
+            <circle cx="32" cy="13" r="0.7" fill="#B8925A"/>
           </svg>
           <div class="nav-logo-text" style="margin-left:12px;">
             <span class="name" style="color:var(--cream);">Rythm Financial</span>
@@ -1500,9 +1456,9 @@
   });
 
   // Form submit mock
-  document.querySelector('.form-submit').addEventListener('click', function() {
-    this.textContent = 'Message Sent';
-    this.style.background = '#4A6741';
+  document.getElementById('contactSubmit').addEventListener('click', function() {
+    this.textContent = 'Message Sent ✓';
+    this.style.background = '#1D4ED8';
     this.style.opacity = '0.75';
     this.disabled = true;
     setTimeout(() => {
