@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rythm Financial — Vancouver Financial Advisory</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:     #1A1A24;
+    --sage:    #4A6741;
+    --sage-lt: #6A8D60;
+    --cream:   #F7F3EC;
+    --warm:    #E8E0D0;
+    --gold:    #B8925A;
+    --gold-lt: #D4A96A;
+    --mist:    #C8D4C0;
+    --white:   #FFFFFF;
+    --text:    #2C2C38;
+    --subtext: #5A5A6A;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── LOGO SVG ── */
+  .logo-svg { display: block; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 56px;
+    height: 76px;
+    background: rgba(247, 243, 236, 0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184,146,90,0.18);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(26,26,36,.08); }
+
+  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .nav-logo-text .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: .02em;
+  }
+  .nav-logo-text .tagline {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: .04em;
+    position: relative;
+    transition: color .2s;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width .3s;
+  }
+  .nav-links a:hover { color: var(--sage); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .btn-nav {
+    padding: 9px 22px;
+    background: var(--sage);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 2px;
+    text-decoration: none;
+    letter-spacing: .06em;
+    transition: background .2s, transform .15s;
+  }
+  .btn-nav:hover { background: var(--sage-lt); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 76px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 500;
+    line-height: 1.12;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sage);
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--subtext);
+    max-width: 420px;
+    line-height: 1.75;
+    margin-bottom: 44px;
+  }
+
+  .hero-ctas { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    padding: 14px 32px;
+    background: var(--sage);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 2px;
+    text-decoration: none;
+    letter-spacing: .06em;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 4px 16px rgba(74,103,65,.25);
+  }
+  .btn-primary:hover { background: var(--sage-lt); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(74,103,65,.3); }
+
+  .btn-secondary {
+    padding: 14px 32px;
+    background: transparent;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(26,26,36,.25);
+    border-radius: 2px;
+    text-decoration: none;
+    letter-spacing: .06em;
+    transition: border-color .2s, color .2s, transform .15s;
+  }
+  .btn-secondary:hover { border-color: var(--sage); color: var(--sage); transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(184,146,90,.2);
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    display: block;
+  }
+  .stat-label {
+    font-size: 11.5px;
+    color: var(--subtext);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-panel {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, var(--sage) 0%, #2E4229 100%);
+  }
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: .06;
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--white) 0,
+      var(--white) 1px,
+      transparent 0,
+      transparent 50%
+    );
+    background-size: 24px 24px;
+  }
+  .hero-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .hc1 { width: 480px; height: 480px; top: -80px; right: -120px; }
+  .hc2 { width: 300px; height: 300px; bottom: 60px; left: 40px; }
+  .hc3 { width: 160px; height: 160px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+
+  .hero-card {
+    position: absolute;
+    z-index: 3;
+  }
+  .hero-card-main {
+    bottom: 80px; left: 50%; transform: translateX(-50%);
+    background: rgba(247,243,236,.96);
+    backdrop-filter: blur(12px);
+    border-radius: 4px;
+    padding: 28px 32px;
+    width: 320px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.2);
+  }
+  .hcm-label {
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .hcm-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .hcm-items { list-style: none; }
+  .hcm-items li {
+    font-size: 13px;
+    color: var(--subtext);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(184,146,90,.12);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hcm-items li:last-child { border-bottom: none; }
+  .hcm-items li::before {
+    content: '';
+    display: inline-block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--sage);
+    flex-shrink: 0;
+  }
+
+  .hero-card-badge {
+    top: 80px; right: 40px;
+    background: var(--gold);
+    color: var(--white);
+    border-radius: 4px;
+    padding: 16px 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(184,146,90,.4);
+  }
+  .badge-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+  }
+  .badge-text {
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    opacity: .88;
+    margin-top: 4px;
+    display: block;
+    line-height: 1.4;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 96px 80px; }
+  .section-inner { max-width: 1160px; margin: 0 auto; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px; height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 3.5vw, 46px);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .section-title em { font-style: italic; color: var(--sage); }
+
+  .section-desc {
+    font-size: 16px;
+    color: var(--subtext);
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 520px;
+  }
+
+  /* ── ABOUT STRIP ── */
+  .about-strip {
+    background: var(--ink);
+    padding: 72px 80px;
+  }
+  .about-strip .section-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-strip .section-title { color: var(--cream); }
+  .about-strip .section-desc { color: rgba(247,243,236,.65); max-width: 100%; }
+  .about-strip .section-eyebrow { color: var(--gold-lt); }
+  .about-strip .section-eyebrow::before { background: var(--gold-lt); }
+
+  .about-values { list-style: none; margin-top: 32px; }
+  .about-values li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(247,243,236,.08);
+    color: rgba(247,243,236,.8);
+    font-size: 14.5px;
+    font-weight: 300;
+  }
+  .about-values li:last-child { border-bottom: none; }
+  .val-icon {
+    width: 32px; height: 32px;
+    background: rgba(184,146,90,.15);
+    border: 1px solid rgba(184,146,90,.3);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .val-icon svg { width: 15px; height: 15px; }
+  .val-body strong {
+    display: block;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 3px;
+    font-size: 14px;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--cream); }
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 56px;
+    gap: 40px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .service-card {
+    background: var(--white);
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s, box-shadow .3s;
+    cursor: default;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--sage);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(26,26,36,.10); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .sc-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: rgba(74,103,65,.08);
+    line-height: 1;
+    margin-bottom: 20px;
+    user-select: none;
+  }
+  .sc-icon {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, rgba(74,103,65,.1), rgba(74,103,65,.05));
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .sc-icon svg { width: 22px; height: 22px; color: var(--sage); }
+
+  .sc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .sc-desc {
+    font-size: 13.5px;
+    color: var(--subtext);
+    font-weight: 300;
+    line-height: 1.75;
+  }
+  .sc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--sage);
+    text-decoration: none;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-top: 20px;
+    transition: gap .2s;
+  }
+  .sc-link:hover { gap: 10px; }
+  .sc-link svg { width: 14px; height: 14px; }
+
+  /* ── APPROACH ── */
+  .approach { background: var(--warm); }
+  .approach .section-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .approach-steps { margin-top: 48px; }
+  .step {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(26,26,36,.08);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    padding-top: 3px;
+  }
+  .step-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .step-desc {
+    font-size: 13.5px;
+    color: var(--subtext);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .approach-visual {
+    position: sticky;
+    top: 100px;
+    background: var(--white);
+    border-radius: 4px;
+    padding: 48px 40px;
+    box-shadow: 0 8px 40px rgba(26,26,36,.08);
+  }
+  .av-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .av-quote::before {
+    content: '"';
+    font-size: 80px;
+    color: rgba(74,103,65,.1);
+    font-family: 'Playfair Display', serif;
+    position: absolute;
+    top: -20px; left: -12px;
+    line-height: 1;
+  }
+  .av-source {
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 32px;
+  }
+  .av-checklist { list-style: none; }
+  .av-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--subtext);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(26,26,36,.06);
+    font-weight: 300;
+  }
+  .av-checklist li:last-child { border-bottom: none; }
+  .av-checklist li::before {
+    content: '';
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: rgba(74,103,65,.12);
+    border: 1.5px solid var(--sage);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%234A6741' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--sage); }
+  .testimonials .section-eyebrow { color: var(--gold-lt); }
+  .testimonials .section-eyebrow::before { background: var(--gold-lt); }
+  .testimonials .section-title { color: var(--cream); }
+  .testimonials .section-desc { color: rgba(247,243,236,.7); }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .testi-card {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 4px;
+    padding: 36px 32px;
+    backdrop-filter: blur(8px);
+    transition: background .3s;
+  }
+  .testi-card:hover { background: rgba(255,255,255,.13); }
+  .testi-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(247,243,236,.9);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .testi-stars { color: var(--gold-lt); font-size: 13px; letter-spacing: 3px; margin-bottom: 20px; }
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .testi-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(184,146,90,.3);
+    border: 1.5px solid rgba(184,146,90,.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--gold-lt);
+    font-weight: 700;
+  }
+  .testi-name {
+    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--cream);
+  }
+  .testi-role {
+    font-size: 11.5px;
+    color: rgba(247,243,236,.5);
+    font-weight: 300;
+    margin-top: 2px;
+  }
+
+  /* ── CTA BAND ── */
+  .cta-band {
+    background: var(--gold);
+    padding: 72px 80px;
+  }
+  .cta-band .section-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+  }
+  .cta-band-text {}
+  .cta-band h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .cta-band p {
+    font-size: 15px;
+    color: rgba(255,255,255,.78);
+    font-weight: 300;
+    max-width: 460px;
+    line-height: 1.7;
+  }
+  .btn-cta-white {
+    padding: 16px 40px;
+    background: var(--white);
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 2px;
+    text-decoration: none;
+    letter-spacing: .06em;
+    white-space: nowrap;
+    transition: background .2s, transform .15s;
+    flex-shrink: 0;
+  }
+  .btn-cta-white:hover { background: var(--cream); transform: translateY(-2px); }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--cream); }
+  .contact .section-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-info { margin-top: 40px; }
+  .ci-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+  .ci-icon {
+    width: 44px; height: 44px;
+    background: rgba(74,103,65,.08);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .ci-icon svg { width: 18px; height: 18px; color: var(--sage); }
+  .ci-label {
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .ci-value {
+    font-size: 14.5px;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .ci-note {
+    font-size: 12px;
+    color: var(--subtext);
+    margin-top: 2px;
+    font-weight: 300;
+  }
+
+  .contact-form-wrap {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 48px 44px;
+    box-shadow: 0 8px 40px rgba(26,26,36,.07);
+  }
+  .cf-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .cf-sub {
+    font-size: 13px;
+    color: var(--subtext);
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+  .form-row { margin-bottom: 20px; }
+  .form-row.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--subtext);
+    margin-bottom: 7px;
+  }
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 11px 14px;
+    background: var(--cream);
+    border: 1px solid rgba(26,26,36,.12);
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    transition: border-color .2s, box-shadow .2s;
+    outline: none;
+    appearance: none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(74,103,65,.12);
+  }
+  .form-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--sage);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--sage-lt); transform: translateY(-1px); }
+  .form-disclaimer {
+    font-size: 11px;
+    color: var(--subtext);
+    font-weight: 300;
+    margin-top: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(247,243,236,.6);
+    padding: 64px 80px 40px;
+  }
+  .footer-inner { max-width: 1160px; margin: 0 auto; }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(247,243,236,.08);
+  }
+  .footer-brand p {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.75;
+    margin-top: 16px;
+    max-width: 260px;
+  }
+  .footer-col-title {
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--cream);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a {
+    font-size: 13.5px;
+    color: rgba(247,243,236,.55);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--gold-lt); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+    font-size: 12px;
+    font-weight: 300;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-legal { font-size: 11px; color: rgba(247,243,236,.35); margin-top: 16px; line-height: 1.7; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp .7s ease both; }
+  .delay-1 { animation-delay: .1s; }
+  .delay-2 { animation-delay: .22s; }
+  .delay-3 { animation-delay: .38s; }
+  .delay-4 { animation-delay: .52s; }
+  .delay-5 { animation-delay: .66s; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 60px 32px; }
+    section { padding: 64px 32px; }
+    .about-strip { padding: 64px 32px; }
+    .about-strip .section-inner,
+    .approach .section-inner,
+    .contact .section-inner { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .cta-band { padding: 56px 32px; }
+    .cta-band .section-inner { flex-direction: column; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    footer { padding: 48px 32px 32px; }
+    .services-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <!-- SVG LOGO -->
+    <svg class="logo-svg" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer ring -->
+      <circle cx="21" cy="21" r="20" stroke="#4A6741" stroke-width="1.5"/>
+      <!-- Drum rim/head -->
+      <ellipse cx="21" cy="28" rx="8" ry="2.5" fill="#F7F3EC" stroke="#4A6741" stroke-width="1.5"/>
+      <!-- Drum body -->
+      <path d="M13 28 v4 c0 1.5 3.5 2.5 8 2.5 s8-1 8-2.5 v-4" fill="#E8E0D0" stroke="#4A6741" stroke-width="1.5"/>
+      <!-- Tension rods -->
+      <line x1="16" y1="29.5" x2="16" y2="33.5" stroke="#B8925A" stroke-width="1"/>
+      <line x1="21" y1="30.5" x2="21" y2="34.5" stroke="#B8925A" stroke-width="1"/>
+      <line x1="26" y1="29.5" x2="26" y2="33.5" stroke="#B8925A" stroke-width="1"/>
+      <!-- Drumsticks -->
+      <line x1="9" y1="21" x2="18" y2="27.5" stroke="#B8925A" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="9" cy="21" r="0.8" fill="#B8925A"/>
+      <line x1="33" y1="21" x2="24" y2="27.5" stroke="#B8925A" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="33" cy="21" r="0.8" fill="#B8925A"/>
+      <!-- Beamed Music Notes (Dollar Signs) -->
+      <!-- Left S curve -->
+      <path d="M15 16.2 c-1.2 0 -1.8 -0.6 -1.8 -1.5 s0.6 -1.5 1.8 -1.5 s1.8 0.6 1.8 1.5 h-0.9 c0 -0.5 -0.3 -0.7 -0.9 -0.7 s-0.9 0.2 -0.9 0.7 s0.3 0.7 0.9 0.7 s1.8 0.6 1.8 1.5 s-0.6 1.5 -1.8 1.5 s-1.8 -0.6 -1.8 -1.5 h0.9 c0 0.5 0.3 0.7 0.9 0.7 s0.9 -0.2 0.9 -0.7 s-0.3 -0.7 -0.9 -0.7 z" fill="#B8925A"/>
+      <rect x="14.6" y="12" width="0.8" height="6" rx="0.3" fill="#B8925A"/>
+      <!-- Left Stem -->
+      <line x1="16.4" y1="14.5" x2="16.4" y2="7.5" stroke="#B8925A" stroke-width="1"/>
+      <!-- Right S curve -->
+      <path d="M24 13.2 c-1.2 0 -1.8 -0.6 -1.8 -1.5 s0.6 -1.5 1.8 -1.5 s1.8 0.6 1.8 1.5 h-0.9 c0 -0.5 -0.3 -0.7 -0.9 -0.7 s-0.9 0.2 -0.9 0.7 s0.3 0.7 0.9 0.7 s1.8 0.6 1.8 1.5 s-0.6 1.5 -1.8 1.5 s-1.8 -0.6 -1.8 -1.5 h0.9 c0 0.5 0.3 0.7 0.9 0.7 s0.9 -0.2 0.9 -0.7 s-0.3 -0.7 -0.9 -0.7 z" fill="#B8925A"/>
+      <rect x="23.6" y="9" width="0.8" height="6" rx="0.3" fill="#B8925A"/>
+      <!-- Right Stem -->
+      <line x1="25.4" y1="11.5" x2="25.4" y2="4.5" stroke="#B8925A" stroke-width="1"/>
+      <!-- Note Beam -->
+      <polygon points="16.4,7.5 25.4,4.5 25.4,6 16.4,9" fill="#B8925A"/>
+      <!-- Single floating note -->
+      <path d="M31 16.7 c-0.8 0 -1.2 -0.4 -1.2 -1 s0.4 -1 1.2 -1 s1.2 0.4 1.2 1 h-0.6 c0 -0.3 -0.2 -0.5 -0.6 -0.5 s-0.6 0.1 -0.6 0.5 s0.2 0.5 0.6 0.5 s1.2 0.4 1.2 1 s-0.4 1 -1.2 1 s-1.2 -0.4 -1.2 -1 h0.6 c0 0.3 0.2 0.5 0.6 0.5 s0.6 -0.1 0.6 -0.5 s-0.2 -0.5 -0.6 -0.5 z" fill="#B8925A"/>
+      <rect x="30.7" y="14" width="0.6" height="4" rx="0.2" fill="#B8925A"/>
+      <line x1="32.0" y1="15.5" x2="32.0" y2="10.5" stroke="#B8925A" stroke-width="0.8"/>
+      <path d="M32.0 10.5 c1.5 1 1 2.5 0 3.5 c0.5 -1.2 0 -2.5 -0 -3.5" fill="#B8925A"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="name">Rythm Financial</span>
+      <span class="tagline">Vancouver</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#approach">Our Approach</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn-nav">Book a Consultation</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-eyebrow fade-up">Vancouver Financial Advisory</span>
+    <h1 class="fade-up delay-1">
+      Planning built<br>to your <em>rhythm</em><br>of life.
+    </h1>
+    <p class="hero-desc fade-up delay-2">
+      Independent financial guidance for families and professionals across British Columbia. Life insurance, estate planning, segregated funds, and more — without the conflict of interest.
+    </p>
+    <div class="hero-ctas fade-up delay-3">
+      <a href="#contact" class="btn-primary">Book a Consultation</a>
+      <a href="#services" class="btn-secondary">View Services</a>
+    </div>
+    <div class="hero-stats fade-up delay-4">
+      <div class="stat-item">
+        <span class="stat-num">BC + ON</span>
+        <span class="stat-label">Licensed Provinces</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Independent</span>
+        <span class="stat-label">No Proprietary Products</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Fee-First</span>
+        <span class="stat-label">Transparent Advice</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-bg-panel"></div>
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-bg-circle hc1"></div>
+    <div class="hero-bg-circle hc2"></div>
+    <div class="hero-bg-circle hc3"></div>
+
+    <div class="hero-card hero-card-badge">
+      <span class="badge-num">7</span>
+      <span class="badge-text">Core Service<br>Areas</span>
+    </div>
+
+    <div class="hero-card hero-card-main">
+      <div class="hcm-label">Our Core Services</div>
+      <div class="hcm-title">Comprehensive financial protection</div>
+      <ul class="hcm-items">
+        <li>Life Insurance</li>
+        <li>Estate Planning</li>
+        <li>Segregated Funds</li>
+        <li>Annuities</li>
+        <li>GIAs</li>
+        <li>Health &amp; Dental</li>
+        <li>Travel Insurance</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip" id="about">
+  <div class="section-inner">
+    <div>
+      <span class="section-eyebrow">About Rythm Financial</span>
+      <h2 class="section-title">A practice built around your priorities, not ours.</h2>
+      <p class="section-desc">
+        Rythm Financial is an independent advisory practice serving clients across Vancouver and British Columbia. We provide objective, comprehensive financial guidance with no obligation to sell proprietary products — just the right solutions for your situation.
+      </p>
+    </div>
+    <div>
+      <ul class="about-values">
+        <li>
+          <div class="val-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="#B8925A" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2L12.4 7.6 18 8.4l-4 3.9.9 5.3L10 15l-4.9 2.6.9-5.3-4-3.9 5.6-.8L10 2z"/>
+            </svg>
+          </div>
+          <div class="val-body">
+            <strong>Truly Independent</strong>
+            Access to the full Canadian insurance and investment market, not a captive shelf.
+          </div>
+        </li>
+        <li>
+          <div class="val-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="#B8925A" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="5" width="14" height="11" rx="1.5"/><path d="M3 8h14M7 5V3M13 5V3"/>
+            </svg>
+          </div>
+          <div class="val-body">
+            <strong>Long-Term Relationships</strong>
+            We review and adapt your plan as your life evolves, not just at point of sale.
+          </div>
+        </li>
+        <li>
+          <div class="val-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="#B8925A" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="7"/><path d="M10 7v3l2 2"/>
+            </svg>
+          </div>
+          <div class="val-body">
+            <strong>Compliant and Regulated</strong>
+            CIRO registered mutual funds advisor. Licensed for insurance across BC and Ontario.
+          </div>
+        </li>
+        <li>
+          <div class="val-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="#B8925A" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 16s1-1 4-1 5 2 8 2M4 4l3 8 3-5 3 5 3-8"/>
+            </svg>
+          </div>
+          <div class="val-body">
+            <strong>Education First</strong>
+            We explain every recommendation clearly so you can make confident decisions.
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div>
+        <span class="section-eyebrow">What We Do</span>
+        <h2 class="section-title">Comprehensive coverage<br>for every stage of life.</h2>
+      </div>
+      <p class="section-desc">From protecting your family today to building a lasting legacy, our services address every dimension of financial security.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- 1 -->
+      <div class="service-card">
+        <div class="sc-number">01</div>
+        <div class="sc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C8 2 4 5 4 9c0 5 8 13 8 13s8-8 8-13c0-4-4-7-8-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+        </div>
+        <div class="sc-title">Life Insurance</div>
+        <p class="sc-desc">Term, whole life, and universal life solutions designed to protect the people who depend on you — now and into retirement.</p>
+        <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+      <!-- 2 -->
+      <div class="service-card">
+        <div class="sc-number">02</div>
+        <div class="sc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 12h6M9 16h4M6 3h12l2 4v12a2 2 0 01-2 2H6a2 2 0 01-2-2V7l2-4z"/>
+          </svg>
+        </div>
+        <div class="sc-title">Estate Planning</div>
+        <p class="sc-desc">Coordinated strategies for transferring your wealth tax-efficiently, preserving your legacy, and protecting the people you care most about.</p>
+        <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+      <!-- 3 -->
+      <div class="service-card">
+        <div class="sc-number">03</div>
+        <div class="sc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 3h18v18H3zM3 9h18M9 21V9"/>
+          </svg>
+        </div>
+        <div class="sc-title">Segregated Funds</div>
+        <p class="sc-desc">Invest with the growth potential of mutual funds plus insurance-backed capital guarantees, creditor protection, and estate bypass features.</p>
+        <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+      <!-- 4 -->
+      <div class="service-card">
+        <div class="sc-number">04</div>
+        <div class="sc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
+          </svg>
+        </div>
+        <div class="sc-title">Annuities</div>
+        <p class="sc-desc">Guaranteed income streams for life or a set term — converting your savings into predictable, tax-efficient retirement income.</p>
+        <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+      <!-- 5 -->
+      <div class="service-card">
+        <div class="sc-number">05</div>
+        <div class="sc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M7 3v3M17 3v3"/>
+          </svg>
+        </div>
+        <div class="sc-title">GIAs</div>
+        <p class="sc-desc">Guaranteed Interest Accounts offering insurance-backed principal protection with competitive rates — ideal for capital preservation strategies.</p>
+        <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+      <!-- 6 -->
+      <div class="service-card">
+        <div class="sc-number">06</div>
+        <div class="sc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2a4 4 0 100 8 4 4 0 000-8zM4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            <path d="M17 14h2a2 2 0 012 2v2h-4"/>
+          </svg>
+        </div>
+        <div class="sc-title">Health &amp; Dental</div>
+        <p class="sc-desc">Individual and family health plans for those without group benefits — covering prescription drugs, dental, vision, paramedical, and critical illness.</p>
+        <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+      <!-- 7 spans full width on last row -->
+      <div class="service-card" style="grid-column: 1 / -1; max-width: calc(33.33% - 1.34px);">
+        <div class="sc-number">07</div>
+        <div class="sc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+          </svg>
+        </div>
+        <div class="sc-title">Travel Insurance</div>
+        <p class="sc-desc">Emergency medical, trip cancellation, and interruption coverage for Canadian travellers — whether you travel occasionally or frequently.</p>
+        <a href="#contact" class="sc-link">Learn More <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="section-inner">
+    <div>
+      <span class="section-eyebrow">How We Work</span>
+      <h2 class="section-title">A structured path to<br><em>clarity and confidence.</em></h2>
+      <p class="section-desc">We follow a consistent, transparent process designed to understand your full picture before recommending anything.</p>
+      <div class="approach-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div>
+            <div class="step-title">Discovery Meeting</div>
+            <p class="step-desc">A relaxed, no-commitment conversation to understand your goals, current coverage, family situation, and what keeps you up at night financially.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div>
+            <div class="step-title">Needs Analysis</div>
+            <p class="step-desc">We conduct a thorough review of your existing policies, investment accounts, and protection gaps before any product is ever discussed.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div>
+            <div class="step-title">Recommendations</div>
+            <p class="step-desc">We present a written plan with options, clear explanations, and full disclosure of compensation — so you can make an informed decision.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div>
+            <div class="step-title">Implementation</div>
+            <p class="step-desc">We handle the applications, underwriting, and paperwork while keeping you informed at every step — no surprises.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">05</div>
+          <div>
+            <div class="step-title">Ongoing Review</div>
+            <p class="step-desc">Annual check-ins and proactive outreach when your life changes — because a plan built five years ago may not fit your life today.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="approach-visual">
+      <div class="av-quote">
+        The best financial plan is the one that actually fits how you live.
+      </div>
+      <div class="av-source">Our Philosophy</div>
+      <ul class="av-checklist">
+        <li>No pressure to buy at the first meeting</li>
+        <li>Plain-language explanations, no jargon</li>
+        <li>Written disclosure of all fees and compensation</li>
+        <li>Access to products from multiple carriers</li>
+        <li>Regulated under BC and Ontario insurance law</li>
+        <li>CIRO registered for mutual fund and seg fund advice</li>
+        <li>Privacy protected under PIPEDA and PIPA (BC)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-inner">
+    <span class="section-eyebrow">Client Stories</span>
+    <h2 class="section-title">Trusted by Vancouver families.</h2>
+    <p class="section-desc">We measure success by the confidence our clients feel about their financial future.</p>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-quote">They reviewed our entire coverage picture before making a single suggestion. No pressure, no jargon — just a clear plan we actually understood.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div>
+            <div class="testi-name">Margaret &amp; David L.</div>
+            <div class="testi-role">Retired Couple, North Vancouver</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-quote">Setting up health and dental coverage after leaving my employer plan was straightforward. They found me a plan that covered my family properly at a price that made sense.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">T</div>
+          <div>
+            <div class="testi-name">Thomas R.</div>
+            <div class="testi-role">Independent Contractor, Vancouver</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testi-quote">The estate planning conversation was long overdue. They coordinated with our lawyer and accountant to make sure everything worked together — not just the insurance piece.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Sandra K.</div>
+            <div class="testi-role">Business Owner, Burnaby</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="section-inner">
+    <div class="cta-band-text">
+      <h2>Ready to take the first step?</h2>
+      <p>A discovery conversation costs nothing and carries no obligation. Let's find out if we're a good fit for each other.</p>
+    </div>
+    <a href="#contact" class="btn-cta-white">Book a Free Consultation</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div>
+      <span class="section-eyebrow">Get in Touch</span>
+      <h2 class="section-title">Let's start a conversation.</h2>
+      <p class="section-desc">Whether you have a specific question or just want to understand your options, we're happy to talk.</p>
+
+      <div class="contact-info">
+        <div class="ci-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="ci-label">Office</div>
+            <div class="ci-value">Vancouver, British Columbia</div>
+            <div class="ci-note">Serving clients across BC and Ontario</div>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 16.9c0 .3-.1.7-.2 1-.2.5-.5.9-.9 1.3-.6.6-1.3.9-2 .9a2 2 0 01-.5-.1c-1.3-.2-2.5-.7-3.7-1.5a18.6 18.6 0 01-2.6-2.6c-.8-1.2-1.4-2.4-1.6-3.7a2 2 0 01.8-2.4l1.6-.9c.4-.2.8-.1 1.1.2l2 2.8c.2.4.1.8-.2 1.1l-.8.7c.5 1 1.1 1.9 2 2.7.8.8 1.7 1.5 2.7 1.9l.7-.8c.3-.3.8-.4 1.1-.2l2.8 2c.3.3.4.7.2 1.1z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="ci-label">Phone</div>
+            <div class="ci-value">(604) 555-0192</div>
+            <div class="ci-note">Monday to Friday, 9am to 5pm PT</div>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8l10 7 10-7"/>
+            </svg>
+          </div>
+          <div>
+            <div class="ci-label">Email</div>
+            <div class="ci-value">hello@rythmfinancial.ca</div>
+            <div class="ci-note">We respond within one business day</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <div class="cf-title">Book a Consultation</div>
+      <div class="cf-sub">Tell us a little about yourself and we'll be in touch shortly.</div>
+      <div class="form-row two">
+        <div>
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-input" placeholder="Jane">
+        </div>
+        <div>
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-input" placeholder="Smith">
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="jane@example.com">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Phone (Optional)</label>
+        <input type="tel" class="form-input" placeholder="(604) 555-0100">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Area of Interest</label>
+        <select class="form-select">
+          <option value="">Select a service area...</option>
+          <option>Life Insurance</option>
+          <option>Estate Planning</option>
+          <option>Segregated Funds</option>
+          <option>Annuities</option>
+          <option>GIAs</option>
+          <option>Health &amp; Dental</option>
+          <option>Travel Insurance</option>
+          <option>General Planning Review</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Message (Optional)</label>
+        <textarea class="form-textarea" placeholder="Tell us briefly about your situation or any questions you have..."></textarea>
+      </div>
+      <button class="form-submit">Send Message</button>
+      <p class="form-disclaimer">
+        Your information is protected under PIPEDA and BC's Personal Information Protection Act. We will never share or sell your personal information. This form does not constitute financial advice or an advisor-client relationship.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="display:inline-flex;">
+          <svg width="36" height="36" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer ring -->
+            <circle cx="21" cy="21" r="20" stroke="#4A6741" stroke-width="1.5"/>
+            <!-- Drum rim/head -->
+            <ellipse cx="21" cy="28" rx="8" ry="2.5" fill="#F7F3EC" stroke="#4A6741" stroke-width="1.5"/>
+            <!-- Drum body -->
+            <path d="M13 28 v4 c0 1.5 3.5 2.5 8 2.5 s8-1 8-2.5 v-4" fill="#E8E0D0" stroke="#4A6741" stroke-width="1.5"/>
+            <!-- Tension rods -->
+            <line x1="16" y1="29.5" x2="16" y2="33.5" stroke="#B8925A" stroke-width="1"/>
+            <line x1="21" y1="30.5" x2="21" y2="34.5" stroke="#B8925A" stroke-width="1"/>
+            <line x1="26" y1="29.5" x2="26" y2="33.5" stroke="#B8925A" stroke-width="1"/>
+            <!-- Drumsticks -->
+            <line x1="9" y1="21" x2="18" y2="27.5" stroke="#B8925A" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="9" cy="21" r="0.8" fill="#B8925A"/>
+            <line x1="33" y1="21" x2="24" y2="27.5" stroke="#B8925A" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="33" cy="21" r="0.8" fill="#B8925A"/>
+            <!-- Beamed Music Notes (Dollar Signs) -->
+            <!-- Left S curve -->
+            <path d="M15 16.2 c-1.2 0 -1.8 -0.6 -1.8 -1.5 s0.6 -1.5 1.8 -1.5 s1.8 0.6 1.8 1.5 h-0.9 c0 -0.5 -0.3 -0.7 -0.9 -0.7 s-0.9 0.2 -0.9 0.7 s0.3 0.7 0.9 0.7 s1.8 0.6 1.8 1.5 s-0.6 1.5 -1.8 1.5 s-1.8 -0.6 -1.8 -1.5 h0.9 c0 0.5 0.3 0.7 0.9 0.7 s0.9 -0.2 0.9 -0.7 s-0.3 -0.7 -0.9 -0.7 z" fill="#B8925A"/>
+            <rect x="14.6" y="12" width="0.8" height="6" rx="0.3" fill="#B8925A"/>
+            <!-- Left Stem -->
+            <line x1="16.4" y1="14.5" x2="16.4" y2="7.5" stroke="#B8925A" stroke-width="1"/>
+            <!-- Right S curve -->
+            <path d="M24 13.2 c-1.2 0 -1.8 -0.6 -1.8 -1.5 s0.6 -1.5 1.8 -1.5 s1.8 0.6 1.8 1.5 h-0.9 c0 -0.5 -0.3 -0.7 -0.9 -0.7 s-0.9 0.2 -0.9 0.7 s0.3 0.7 0.9 0.7 s1.8 0.6 1.8 1.5 s-0.6 1.5 -1.8 1.5 s-1.8 -0.6 -1.8 -1.5 h0.9 c0 0.5 0.3 0.7 0.9 0.7 s0.9 -0.2 0.9 -0.7 s-0.3 -0.7 -0.9 -0.7 z" fill="#B8925A"/>
+            <rect x="23.6" y="9" width="0.8" height="6" rx="0.3" fill="#B8925A"/>
+            <!-- Right Stem -->
+            <line x1="25.4" y1="11.5" x2="25.4" y2="4.5" stroke="#B8925A" stroke-width="1"/>
+            <!-- Note Beam -->
+            <polygon points="16.4,7.5 25.4,4.5 25.4,6 16.4,9" fill="#B8925A"/>
+            <!-- Single floating note -->
+            <path d="M31 16.7 c-0.8 0 -1.2 -0.4 -1.2 -1 s0.4 -1 1.2 -1 s1.2 0.4 1.2 1 h-0.6 c0 -0.3 -0.2 -0.5 -0.6 -0.5 s-0.6 0.1 -0.6 0.5 s0.2 0.5 0.6 0.5 s1.2 0.4 1.2 1 s-0.4 1 -1.2 1 s-1.2 -0.4 -1.2 -1 h0.6 c0 0.3 0.2 0.5 0.6 0.5 s0.6 -0.1 0.6 -0.5 s-0.2 -0.5 -0.6 -0.5 z" fill="#B8925A"/>
+            <rect x="30.7" y="14" width="0.6" height="4" rx="0.2" fill="#B8925A"/>
+            <line x1="32.0" y1="15.5" x2="32.0" y2="10.5" stroke="#B8925A" stroke-width="0.8"/>
+            <path d="M32.0 10.5 c1.5 1 1 2.5 0 3.5 c0.5 -1.2 0 -2.5 -0 -3.5" fill="#B8925A"/>
+          </svg>
+          <div class="nav-logo-text" style="margin-left:12px;">
+            <span class="name" style="color:var(--cream);">Rythm Financial</span>
+            <span class="tagline">Vancouver</span>
+          </div>
+        </a>
+        <p>Independent financial advisory services for families and professionals across British Columbia and Ontario.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Life Insurance</a></li>
+          <li><a href="#services">Estate Planning</a></li>
+          <li><a href="#services">Segregated Funds</a></li>
+          <li><a href="#services">Annuities</a></li>
+          <li><a href="#services">GIAs</a></li>
+          <li><a href="#services">Health &amp; Dental</a></li>
+          <li><a href="#services">Travel Insurance</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#approach">Our Approach</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Regulatory Disclosures</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="#">Vancouver, BC</a></li>
+          <li><a href="#">(604) 555-0192</a></li>
+          <li><a href="#">hello@rythmfinancial.ca</a></li>
+          <li><a href="#">rythmfinancial.ca</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-legal">
+      Rythm Financial is a licensed insurance advisor in British Columbia and Ontario. Securities and mutual fund products, including segregated funds, are offered through a registered mutual fund dealer under CIRO. Rythm Financial and its principals are not employees of any insurance company or bank. Commissions, trailing commissions, management fees, and expenses may be associated with mutual fund and segregated fund investments. Please read the fund facts or information folder before investing. Segregated fund values change frequently and past performance may not be repeated. The information on this website is general in nature and does not constitute financial, tax, or legal advice.
+    </p>
+
+    <div class="footer-bottom">
+      <span>Copyright 2025 Rythm Financial. All rights reserved.</span>
+      <span>Licensed in BC and Ontario &nbsp;|&nbsp; CIRO Registered</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Form submit mock
+  document.querySelector('.form-submit').addEventListener('click', function() {
+    this.textContent = 'Message Sent';
+    this.style.background = '#4A6741';
+    this.style.opacity = '0.75';
+    this.disabled = true;
+    setTimeout(() => {
+      this.textContent = 'Send Message';
+      this.style.opacity = '1';
+      this.disabled = false;
+    }, 3000);
+  });
+</script>
+</body>
+</html>
